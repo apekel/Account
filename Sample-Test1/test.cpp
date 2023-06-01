@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../Project121/Cal.cpp"
+#include "../Project121/Account.cpp"
 
 class AccountFixture : public testing::Test
 {
@@ -18,4 +18,14 @@ TEST_F(AccountFixture, Deposit) {
 TEST_F(AccountFixture, WithDraw) {
 	account.withdraw(400);
 	EXPECT_EQ(9600, account.getBalance());
+}
+
+TEST_F(AccountFixture, CompountInterest) {
+	account.setCompountInterest(5);
+	EXPECT_EQ(10500, account.getBalance());
+}
+
+TEST_F(AccountFixture, CompountInterestWithYear) {
+	account.setCompountInterestWithYear(5, 3);
+	EXPECT_EQ(11576, account.getBalance());
 }
